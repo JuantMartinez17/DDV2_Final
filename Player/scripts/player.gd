@@ -27,18 +27,20 @@ func _physics_process(delta: float) -> void:
 	#handle attack animations
 	if Input.is_action_just_pressed("attack"):
 		if is_crouched:
+			velocity.x = 0
 			play_attack_animation("crouch_attack")
 		else:
+			velocity.x = 0
 			play_attack_animation("attack")
 	elif Input.is_action_just_pressed("attack 2"): 
 		if is_crouched:
 			pass
 		else:
+			velocity.x = 0
 			play_attack_animation("attack2")
 		
 	#stop movement while attacking
 	if is_attacking :
-		velocity.x = 0
 		move_and_slide()
 		return
 
@@ -59,11 +61,16 @@ func _physics_process(delta: float) -> void:
 		crouch()
 	elif Input.is_action_just_released("crouch"):
 		stand()
+	if Input.is_action_just_pressed("roll"):
+		roll(direction)
 
 	move_and_slide()
 	update_animation(direction)
 
 func update_animation(direction):
+	if is_attacking:
+		move_and_slide()
+		return
 	if is_on_floor():
 		if direction == 0:
 			if is_crouched:
@@ -98,3 +105,17 @@ func stand()-> void:
 		is_crouched = false
 	else:
 		return
+		
+func roll(direction)-> void:
+	if is_crouched or is_attacking:
+		return
+	if direction != 0:
+		print("roll start")
+		is_attacking = true
+		velocity.x = direction * SPEED * 1.2
+		ap.play("roll")
+		await ap.animation_finished
+		print("roll end")
+		is_attacking = false
+	else:
+		print("no roll - not moving")
