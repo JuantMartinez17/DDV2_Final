@@ -4,18 +4,21 @@ extends CharacterBody2D
 const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 const CROUCH_SPEED = 100.0
+var damage = 25
 @onready var ap = $AnimationPlayer
 @onready var sprite = $Sprite2D
+@onready var attack_area = $Area2D
 var is_attacking = false #avoid interrumtions in attack animations and stop movement
 var is_crouched = false #flag to determine if player is crouching
 var max_health = 100
 var current_health: int = max_health
 var is_dead: bool = false
 var hud: CanvasLayer
+var enemies_in_range = []
 
 func set_hud(hud_instance: CanvasLayer)-> void:
 	hud = hud_instance
-
+	
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
@@ -37,17 +40,20 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		if is_crouched:
 			velocity.x = 0
+			damage = 20
 			play_attack_animation("crouch_attack")
 		else:
 			velocity.x = 0
 			play_attack_animation("attack")
+		attack_enemies_in_range(damage)
 	elif Input.is_action_just_pressed("attack 2"): 
 		if is_crouched:
 			pass
 		else:
 			velocity.x = 0
+			damage = 30
 			play_attack_animation("attack2")
-		
+		attack_enemies_in_range(damage)
 	#stop movement while attacking
 	if is_attacking :
 		move_and_slide()
@@ -160,3 +166,19 @@ func on_damage_taken()-> void:
 	print("damage taken")
 	ap.play("hit")
 	
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body != self and body is CharacterBody2D:
+		enemies_in_range.append(body)
+		print(enemies_in_range)
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body in enemies_in_range:
+		enemies_in_range.erase(body)
+		
+func attack_enemies_in_range(damage)-> void:
+	for enemy in enemies_in_range:
+		if enemy is CharacterBody2D and not enemy.is_dead:
+			enemy.take_damage(damage)
