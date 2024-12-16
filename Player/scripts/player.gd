@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 200.0
+const JUMP_VELOCITY = -300.0
 @onready var ap = $AnimationPlayer
 @onready var sprite = $Sprite2D
+var is_attacking = false #avoid interrumtions in attack animations and stop movement
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -14,6 +15,18 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+	#handle attack animations
+	if Input.is_action_just_pressed("attack"):
+		play_attack_animation("attack")
+	elif Input.is_action_just_pressed("attack 2"):
+		play_attack_animation("attack")
+		
+	#stop movement while attacking
+	if is_attacking :
+		velocity.x = 0
+		move_and_slide()
+		return
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -39,3 +52,9 @@ func update_animation(direction):
 			ap.play("jump")
 		elif velocity.y > 0:
 			ap.play("fall")
+
+func play_attack_animation(attack_type: String) -> void:
+	is_attacking = true
+	ap.play(attack_type)
+	await ap.animation_finished
+	is_attacking = false
