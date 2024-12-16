@@ -20,10 +20,9 @@ func _physics_process(delta: float) -> void:
 	
 	#handle player crouching
 	if Input.is_action_pressed("crouch"):
-		is_crouched = true
-		ap.play("crouch")
+		crouch()
 	if Input.is_action_just_released("crouch"):
-		is_crouched = false
+		stand()
 		
 	#handle attack animations
 	if Input.is_action_just_pressed("attack"):
@@ -31,11 +30,11 @@ func _physics_process(delta: float) -> void:
 			play_attack_animation("crouch_attack")
 		else:
 			play_attack_animation("attack")
-	elif Input.is_action_just_pressed("attack 2"):
+	elif Input.is_action_just_pressed("attack 2"): 
 		if is_crouched:
-			play_attack_animation("crouch_attack")
-		else: 
-			play_attack_animation("attack")
+			pass
+		else:
+			play_attack_animation("attack2")
 		
 	#stop movement while attacking
 	if is_attacking :
@@ -55,20 +54,25 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if (direction != 0):
 		sprite.flip_h = (direction == -1)
+		
+	if Input.is_action_just_pressed("crouch"):
+		crouch()
+	elif Input.is_action_just_released("crouch"):
+		stand()
 
 	move_and_slide()
 	update_animation(direction)
 
 func update_animation(direction):
 	if is_on_floor():
-		if is_crouched:
-			if direction == 0:
+		if direction == 0:
+			if is_crouched:
 				ap.play("crouch")
 			else:
-				ap.play("crouch_walk")
-		else:
-			if direction == 0:
 				ap.play("idle")
+		else:
+			if is_crouched:
+				ap.play("crouch_walk")
 			else:
 				ap.play("run")
 	else:
@@ -82,3 +86,15 @@ func play_attack_animation(attack_type: String) -> void:
 	ap.play(attack_type)
 	await ap.animation_finished
 	is_attacking = false
+	
+func crouch()-> void:
+	if is_crouched:
+		return
+	else:
+		is_crouched = true
+		
+func stand()-> void:
+	if is_crouched:
+		is_crouched = false
+	else:
+		return
