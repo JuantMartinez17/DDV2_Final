@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bytwsfun2pnrx"]
+[gd_scene load_steps=6 format=3 uid="uid://bytwsfun2pnrx"]
 
 [ext_resource type="PackedScene" uid="uid://rylnngnvvk8k" path="res://Player/scenes/Player.tscn" id="1_0uh1a"]
 [ext_resource type="Texture2D" uid="uid://dmwrlbo5smury" path="res://assets/background_layer_3.png" id="1_l1nbv"]
+[ext_resource type="Script" path="res://Levels/scripts/level_1.gd" id="1_r3nhe"]
 [ext_resource type="PackedScene" uid="uid://1cqinogjs2x3" path="res://Platforms/platform1.tscn" id="3_2d3m4"]
+[ext_resource type="PackedScene" uid="uid://bvlxbjfdypbhn" path="res://UI/scenes/hud.tscn" id="4_qfcck"]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_r3nhe")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -28,3 +31,5 @@ position = Vector2(178, 379)
 
 [node name="Platform1" parent="." instance=ExtResource("3_2d3m4")]
 position = Vector2(135, 431)
+
+[node name="Hud" parent="." instance=ExtResource("4_qfcck")]

@@ -8,8 +8,17 @@ const CROUCH_SPEED = 100.0
 @onready var sprite = $Sprite2D
 var is_attacking = false #avoid interrumtions in attack animations and stop movement
 var is_crouched = false #flag to determine if player is crouching
+var max_health = 100
+var current_health: int = max_health
+var is_dead: bool = false
+var hud: CanvasLayer
+
+func set_hud(hud_instance: CanvasLayer)-> void:
+	hud = hud_instance
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -119,3 +128,35 @@ func roll(direction)-> void:
 		is_attacking = false
 	else:
 		print("no roll - not moving")
+		
+func take_damage(amount: int)-> void:
+	if is_dead:
+		return
+	current_health -= amount
+	if current_health <= 0:
+		current_health = 0
+		die()
+	else:
+		on_damage_taken()
+	hud.update_health(current_health, max_health)
+
+func die()-> void:
+	is_dead = true
+	print("You died!")
+	ap.play("death")
+	velocity = Vector2.ZERO
+
+func heal(amount: int)-> void:
+	if is_dead:
+		return
+	elif current_health == 100:
+		return
+	else:
+		current_health += amount
+		if current_health > max_health:
+			current_health = max_health
+
+func on_damage_taken()-> void:
+	print("damage taken")
+	ap.play("hit")
+	
