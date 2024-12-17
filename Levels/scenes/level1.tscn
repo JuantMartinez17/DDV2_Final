@@ -69,4 +69,4 @@ collision_layer = 3
 collision_mask = 2
 
 [node name="Node2D2" parent="." instance=ExtResource("9_46awt")]
-position = Vector2(1392, 218)
+position = Vector2(1696, 254)
