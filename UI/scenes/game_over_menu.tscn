@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp1a2kgk8gw26"]
+[gd_scene load_steps=7 format=3 uid="uid://cp1a2kgk8gw26"]
 
+[ext_resource type="Script" path="res://UI/game_over_menu.gd" id="1_rfrt7"]
 [ext_resource type="Texture2D" uid="uid://cft330o1oidsg" path="res://UI/assets/game_over_menu_background.png" id="1_ymbm5"]
 [ext_resource type="Script" path="res://UI/scripts/game_over_menugd.gd" id="2_s52ff"]
 [ext_resource type="Script" path="res://UI/scripts/v_box_container.gd" id="3_4ncqu"]
 [ext_resource type="Theme" uid="uid://c877x8f6cbfhs" path="res://Themes/menu_button.tres" id="4_ljq5p"]
+[ext_resource type="AudioStream" uid="uid://c6ys1y70ewmlm" path="res://Sounds/game_over.wav" id="6_ecf02"]
 
 [node name="GameOver" type="Node2D"]
+script = ExtResource("1_rfrt7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -69.0
@@ -52,6 +55,9 @@ focus_neighbor_bottom = NodePath("../play")
 theme = ExtResource("4_ljq5p")
 text = "Main Menu"
 flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ecf02")
 
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/play" to="CanvasLayer" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/exit" to="CanvasLayer" method="_on_exit_pressed"]

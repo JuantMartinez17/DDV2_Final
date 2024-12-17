@@ -52,6 +52,8 @@ action_mode = 0
 text = "Exit"
 flat = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="pressed" from="PauseMenu/VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/exit" to="." method="_on_exit_pressed"]

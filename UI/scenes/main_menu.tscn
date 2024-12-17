@@ -58,6 +58,7 @@ flat = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_knaht")
 
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/play" to="CanvasLayer" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/exit" to="CanvasLayer" method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/controls" to="CanvasLayer" method="_on_controls_pressed"]

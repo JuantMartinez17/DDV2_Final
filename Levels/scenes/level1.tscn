@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bytwsfun2pnrx"]
+[gd_scene load_steps=17 format=3 uid="uid://bytwsfun2pnrx"]
 
 [ext_resource type="PackedScene" uid="uid://rylnngnvvk8k" path="res://Player/scenes/Player.tscn" id="1_0uh1a"]
 [ext_resource type="Texture2D" uid="uid://dmwrlbo5smury" path="res://assets/background_layer_3.png" id="1_l1nbv"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bh6gmu3tev4f" path="res://Objects/rock/scene/sprite_2d.tscn" id="11_okqc0"]
 [ext_resource type="PackedScene" uid="uid://ds3lqs4f0cl4i" path="res://Objects/shop/scenes/level_boss_trip_A.tscn" id="12_n65wk"]
 [ext_resource type="PackedScene" uid="uid://bfka7j284g6x" path="res://Enemies/Scenes/final_boss.tscn" id="15_s44el"]
+[ext_resource type="AudioStream" uid="uid://25xctlwq5yst" path="res://Sounds/level.ogg" id="16_rs5x0"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_r3nhe")
@@ -146,3 +147,6 @@ scale = Vector2(0.394444, 0.416667)
 
 [node name="Enemy5" parent="." instance=ExtResource("15_s44el")]
 position = Vector2(2362, 287)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_rs5x0")
