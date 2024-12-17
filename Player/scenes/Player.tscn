@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://rylnngnvvk8k"]
+[gd_scene load_steps=34 format=3 uid="uid://rylnngnvvk8k"]
 
 [ext_resource type="Texture2D" uid="uid://dbonk4mkdxg5c" path="res://Player/assets/_Idle.png" id="1_xbtc3"]
 [ext_resource type="Script" path="res://Player/scripts/player.gd" id="1_ygff3"]
@@ -13,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://05e5rpfbg382" path="res://Player/assets/_Roll.png" id="11_0fjvd"]
 [ext_resource type="Texture2D" uid="uid://bb4bt7801fei4" path="res://Player/assets/_Death.png" id="12_pqxsw"]
 [ext_resource type="Texture2D" uid="uid://q77w3qyaq1n1" path="res://Player/assets/_Hit.png" id="13_jhofk"]
+[ext_resource type="AudioStream" uid="uid://col67bgnf4pbg" path="res://Sounds/Sword Attack 1.ogg" id="14_jspd4"]
+[ext_resource type="AudioStream" uid="uid://c2alskhtclkmw" path="res://Sounds/Dirt Run 1.ogg" id="15_nvtqk"]
+[ext_resource type="AudioStream" uid="uid://18iwt2bypi7t" path="res://Sounds/Dirt Jump.ogg" id="16_7vvcu"]
+[ext_resource type="AudioStream" uid="uid://kce0ryotte0u" path="res://Sounds/Roll Jump.ogg" id="17_7pc4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ol1uf"]
 size = Vector2(38, 20)
@@ -751,12 +755,16 @@ libraries = {
 }
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_jspd4")
+
+[node name="RunSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_nvtqk")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_7vvcu")
 
 [node name="RollSound" type="AudioStreamPlayer2D" parent="."]
-
-[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_7pc4v")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -59,7 +59,7 @@ texture = ExtResource("1_l1nbv")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_0uh1a")]
-position = Vector2(157, 342)
+position = Vector2(160, 384)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(244, -42)
@@ -99,6 +99,9 @@ collision_mask = 2
 position = Vector2(910, 366)
 collision_layer = 3
 collision_mask = 2
+
+[node name="FinalBoss" parent="." instance=ExtResource("15_s44el")]
+position = Vector2(2316, 288)
 
 [node name="Node2D2" parent="." instance=ExtResource("9_46awt")]
 position = Vector2(1716, 314)
@@ -144,9 +147,6 @@ scale = Vector2(0.433333, 0.444444)
 [node name="Rock7" parent="." instance=ExtResource("11_okqc0")]
 position = Vector2(256.125, 423.75)
 scale = Vector2(0.394444, 0.416667)
-
-[node name="Enemy5" parent="." instance=ExtResource("15_s44el")]
-position = Vector2(2362, 287)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_rs5x0")

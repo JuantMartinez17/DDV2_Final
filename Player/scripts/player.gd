@@ -15,6 +15,10 @@ var current_health: int = max_health
 var is_dead: bool = false
 var hud: CanvasLayer
 var enemies_in_range = []
+@onready var attack_sound = $AttackSound
+@onready var run_sound = $RunSound
+@onready var roll_sound = $RollSound
+@onready var jump_sound = $JumpSound
 
 func set_hud(hud_instance: CanvasLayer)-> void:
 	hud = hud_instance
@@ -30,6 +34,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump_sound.play()
 	
 	#handle player crouching
 	if Input.is_action_pressed("crouch"):
@@ -97,6 +102,8 @@ func update_animation(direction):
 			if is_crouched:
 				ap.play("crouch_walk")
 			else:
+				if not run_sound.playing:
+					run_sound.play()
 				ap.play("run")
 	else:
 		if velocity.y < 0:
@@ -107,6 +114,7 @@ func update_animation(direction):
 func play_attack_animation(attack_type: String) -> void:
 	is_attacking = true
 	ap.play(attack_type)
+	attack_sound.play()
 	await ap.animation_finished
 	is_attacking = false
 	
@@ -129,6 +137,7 @@ func roll(direction)-> void:
 		print("roll start")
 		is_attacking = true
 		velocity.x = direction * SPEED * 1.2
+		roll_sound.play()
 		ap.play("roll")
 		await ap.animation_finished
 		print("roll end")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bfka7j284g6x"]
 
-[ext_resource type="Script" path="res://Enemies/scripts/enemy_1.gd" id="1_onuns"]
+[ext_resource type="Script" path="res://Enemies/Scenes/final_boss.gd" id="1_w04ag"]
 [ext_resource type="Texture2D" uid="uid://civayhpyy83j4" path="res://Enemies/assets/Idle.png" id="2_gjgu2"]
 [ext_resource type="Texture2D" uid="uid://ee75lqt58qoh" path="res://Enemies/assets/attack.png" id="3_8be0p"]
 [ext_resource type="Texture2D" uid="uid://cbw2wc4was3tj" path="res://Enemies/assets/Death.png" id="4_rhvrn"]
@@ -8,11 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://rak2ieil6v8j" path="res://Enemies/assets/Run.png" id="6_t1u4j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egpws"]
-radius = 6.22306
-height = 36.0
+radius = 7.26024
+height = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_547nx"]
-size = Vector2(24, 17)
+size = Vector2(34, 17)
 
 [sub_resource type="Animation" id="Animation_ng2no"]
 length = 0.001
@@ -344,17 +344,18 @@ a = Vector2(56, 0)
 b = Vector2(-38, 0)
 
 [node name="Enemy1" type="CharacterBody2D"]
-script = ExtResource("1_onuns")
+script = ExtResource("1_w04ag")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.736111, 0.813954)
+position = Vector2(0.500006, -9.97673)
+scale = Vector2(0.882813, 1.12573)
 texture = ExtResource("2_gjgu2")
 flip_h = true
 hframes = 2
 vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 7)
+position = Vector2(-1, 2)
 scale = Vector2(0.964156, 1)
 shape = SubResource("CapsuleShape2D_egpws")
 
@@ -362,7 +363,7 @@ shape = SubResource("CapsuleShape2D_egpws")
 
 [node name="CollisionDetector" type="CollisionShape2D" parent="AttackArea2D"]
 light_mask = 2
-position = Vector2(-1, 2)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_547nx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
