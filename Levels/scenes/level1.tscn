@@ -57,7 +57,7 @@ texture = ExtResource("1_l1nbv")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_0uh1a")]
-position = Vector2(158, 357)
+position = Vector2(157, 342)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(244, -42)

@@ -18,6 +18,7 @@ var enemies_in_range = []
 
 func set_hud(hud_instance: CanvasLayer)-> void:
 	hud = hud_instance
+	hud.update_health(current_health, max_health)
 	
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -156,19 +157,18 @@ func die()-> void:
 func heal(amount: int)-> void:
 	if is_dead:
 		return
-	elif current_health == 100:
+	elif current_health == max_health:
 		return
 	else:
 		current_health += amount
 		if current_health > max_health:
 			current_health = max_health
+	hud.update_health(current_health, max_health)
 
 func on_damage_taken()-> void:
 	print("damage taken")
 	ap.play("hit")
 	
-
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body != self and body is CharacterBody2D:
 		enemies_in_range.append(body)
