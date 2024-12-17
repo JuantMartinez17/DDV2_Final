@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bytwsfun2pnrx"]
+[gd_scene load_steps=19 format=3 uid="uid://bytwsfun2pnrx"]
 
 [ext_resource type="PackedScene" uid="uid://rylnngnvvk8k" path="res://Player/scenes/Player.tscn" id="1_0uh1a"]
 [ext_resource type="Texture2D" uid="uid://dmwrlbo5smury" path="res://assets/background_layer_3.png" id="1_l1nbv"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://ds3lqs4f0cl4i" path="res://Objects/shop/scenes/level_boss_trip_A.tscn" id="12_n65wk"]
 [ext_resource type="PackedScene" uid="uid://bfka7j284g6x" path="res://Enemies/Scenes/final_boss.tscn" id="15_s44el"]
 [ext_resource type="AudioStream" uid="uid://25xctlwq5yst" path="res://Sounds/level.ogg" id="16_rs5x0"]
+[ext_resource type="PackedScene" uid="uid://boevmt4dyjd54" path="res://Levels/scenes/level_limits.tscn" id="17_e40j3"]
+[ext_resource type="PackedScene" uid="uid://cjg50enpj71g2" path="res://Levels/scenes/death_zone.tscn" id="18_sisgi"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_r3nhe")
@@ -150,3 +152,15 @@ scale = Vector2(0.394444, 0.416667)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_rs5x0")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("17_e40j3")]
+position = Vector2(-20, 313)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("17_e40j3")]
+position = Vector2(2976, 139)
+
+[node name="DeathZone" parent="." instance=ExtResource("18_sisgi")]
+position = Vector2(575, 566)
+
+[node name="DeathZone2" parent="." instance=ExtResource("18_sisgi")]
+position = Vector2(2015, 562)
