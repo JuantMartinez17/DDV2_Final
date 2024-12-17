@@ -29,6 +29,42 @@ offset_bottom = 502.0
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
 
+[node name="move_left" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_b44vc")
+text = "Left"
+flat = true
+
+[node name="move_right" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_b44vc")
+text = "Right"
+flat = true
+
+[node name="jump" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_b44vc")
+text = "Jump"
+flat = true
+
+[node name="attack" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_b44vc")
+text = "Attack"
+flat = true
+
+[node name="attack2" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_b44vc")
+text = "Attack 2"
+flat = true
+
+[node name="crouch" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_b44vc")
+text = "Crouch"
+flat = true
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 

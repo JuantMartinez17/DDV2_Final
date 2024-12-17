@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = 0
 			play_attack_animation("attack")
 		attack_enemies_in_range(damage)
-	elif Input.is_action_just_pressed("attack 2"): 
+	elif Input.is_action_just_pressed("attack2"): 
 		if is_crouched:
 			pass
 		else:
