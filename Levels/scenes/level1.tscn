@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bytwsfun2pnrx"]
+[gd_scene load_steps=14 format=3 uid="uid://bytwsfun2pnrx"]
 
 [ext_resource type="PackedScene" uid="uid://rylnngnvvk8k" path="res://Player/scenes/Player.tscn" id="1_0uh1a"]
 [ext_resource type="Texture2D" uid="uid://dmwrlbo5smury" path="res://assets/background_layer_3.png" id="1_l1nbv"]
 [ext_resource type="Script" path="res://Levels/scripts/level_1.gd" id="1_r3nhe"]
 [ext_resource type="PackedScene" uid="uid://1cqinogjs2x3" path="res://Platforms/scenes/platform1.tscn" id="3_2d3m4"]
+[ext_resource type="PackedScene" uid="uid://cv4e2rx1q2ypc" path="res://Objects/shop/scenes/level_boss_trip_b.tscn" id="3_05fme"]
 [ext_resource type="PackedScene" uid="uid://bvlxbjfdypbhn" path="res://UI/scenes/hud.tscn" id="4_qfcck"]
 [ext_resource type="PackedScene" uid="uid://dll04clj7sepd" path="res://Enemies/Scenes/enemy_1.tscn" id="6_4lw0o"]
 [ext_resource type="PackedScene" uid="uid://cdj1hotq5j55q" path="res://UI/scenes/pause_menu.tscn" id="7_mrdhm"]
@@ -20,9 +21,13 @@ script = ExtResource("1_r3nhe")
 position = Vector2(1326, 336.5)
 scale = Vector2(0.966102, 0.867188)
 
+[node name="level_boss_trip_B" parent="." instance=ExtResource("3_05fme")]
+position = Vector2(1772, 250)
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(1, 0)
 motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(1152, 0)
 
@@ -33,8 +38,22 @@ offset_bottom = 647.0
 texture = ExtResource("1_l1nbv")
 metadata/_edit_lock_ = true
 
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+position = Vector2(2304, 0)
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground2/ParallaxLayer"]
+offset_top = -1.0
+offset_right = 1152.0
+offset_bottom = 647.0
+texture = ExtResource("1_l1nbv")
+metadata/_edit_lock_ = true
+
 [node name="Player" parent="." instance=ExtResource("1_0uh1a")]
-position = Vector2(224, 342)
+position = Vector2(1162, 248)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(244, -42)
@@ -76,7 +95,13 @@ collision_layer = 3
 collision_mask = 2
 
 [node name="Node2D2" parent="." instance=ExtResource("9_46awt")]
-position = Vector2(1696, 254)
+position = Vector2(1716, 314)
+
+[node name="Node2D3" parent="." instance=ExtResource("9_46awt")]
+position = Vector2(2135, 314)
+
+[node name="Node2D4" parent="." instance=ExtResource("9_46awt")]
+position = Vector2(2545, 314)
 
 [node name="Lamp" parent="." instance=ExtResource("10_fyl7a")]
 position = Vector2(192, 404)

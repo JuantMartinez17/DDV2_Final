@@ -1,7 +1,7 @@
 extends Area2D
 
-@onready var destination = get_tree().root.get_node("res://Objects/shop/scenes/level_boss_trip_b.tscn")
-@onready var hud = get_tree().root.get_node("res://UI/scenes/hud.tscn")
+@onready var destination = get_tree().root.get_node("Level1/level_boss_trip_B")
+@onready var hud = get_tree().root.get_node("Level1/Hud")
 
 var player_in_area = false
 var player = null
