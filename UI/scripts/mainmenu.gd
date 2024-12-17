@@ -22,7 +22,7 @@ func _on_controls_pressed() -> void:
 	get_tree().change_scene_to_file("res://UI/scenes/controls_config.tscn")
 	
 func load_key_config()-> void:
-	var file_path = "res://input_config.cfg"
+	var file_path = "user://input_config.cfg"
 	if FileAccess.file_exists(file_path):
 		var file = FileAccess.open(file_path, FileAccess.READ)
 		if file:

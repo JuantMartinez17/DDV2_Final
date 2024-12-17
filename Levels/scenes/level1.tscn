@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bytwsfun2pnrx"]
+[gd_scene load_steps=8 format=3 uid="uid://bytwsfun2pnrx"]
 
 [ext_resource type="PackedScene" uid="uid://rylnngnvvk8k" path="res://Player/scenes/Player.tscn" id="1_0uh1a"]
 [ext_resource type="Texture2D" uid="uid://dmwrlbo5smury" path="res://assets/background_layer_3.png" id="1_l1nbv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://1cqinogjs2x3" path="res://Platforms/platform1.tscn" id="3_2d3m4"]
 [ext_resource type="PackedScene" uid="uid://bvlxbjfdypbhn" path="res://UI/scenes/hud.tscn" id="4_qfcck"]
 [ext_resource type="PackedScene" uid="uid://dll04clj7sepd" path="res://Enemies/Scenes/enemy_1.tscn" id="6_4lw0o"]
+[ext_resource type="PackedScene" uid="uid://cdj1hotq5j55q" path="res://UI/scenes/pause_menu.tscn" id="7_mrdhm"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_r3nhe")
@@ -28,7 +29,7 @@ position = Vector2(426, 288)
 zoom = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("1_0uh1a")]
-position = Vector2(178, 379)
+position = Vector2(182, 330)
 
 [node name="Platform1" parent="." instance=ExtResource("3_2d3m4")]
 visibility_layer = 3
@@ -44,3 +45,5 @@ position = Vector2(556, 395)
 position = Vector2(400, 399)
 collision_layer = 3
 collision_mask = 2
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_mrdhm")]

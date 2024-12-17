@@ -62,7 +62,7 @@ func _on_save_pressed() -> void:
 	save_config_to_file(config)
 
 func save_config_to_file(config) -> void:
-	var file = FileAccess.open("res://input_config.cfg", FileAccess.WRITE)
+	var file = FileAccess.open("user://input_config.cfg", FileAccess.WRITE)
 	for action in config.keys():
 		file.store_line("%s=%s" % [action, config[action]])
 	file.close()
@@ -79,7 +79,7 @@ func _on_restore_pressed() -> void:
 			"move_right": default_event.keycode = KEY_D
 			"jump": default_event.keycode = KEY_W
 			"attack": default_event.keycode = KEY_X
-			"attack_2": default_event.keycode = KEY_C
+			"attack2": default_event.keycode = KEY_C
 			"crouch": default_event.keycode = KEY_CTRL
 			"roll": default_event.keycode = KEY_R
 		InputMap.action_add_event(action, default_event)
