@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bytwsfun2pnrx"]
+[gd_scene load_steps=13 format=3 uid="uid://bytwsfun2pnrx"]
 
 [ext_resource type="PackedScene" uid="uid://rylnngnvvk8k" path="res://Player/scenes/Player.tscn" id="1_0uh1a"]
 [ext_resource type="Texture2D" uid="uid://dmwrlbo5smury" path="res://assets/background_layer_3.png" id="1_l1nbv"]
@@ -9,9 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://cdj1hotq5j55q" path="res://UI/scenes/pause_menu.tscn" id="7_mrdhm"]
 [ext_resource type="PackedScene" uid="uid://c5rwbbnch4lv8" path="res://Platforms/scenes/platform_type2.tscn" id="8_wxmyq"]
 [ext_resource type="PackedScene" uid="uid://dmsgnangg7k2e" path="res://Platforms/scenes/platform_type3.tscn" id="9_46awt"]
+[ext_resource type="PackedScene" uid="uid://caf3spgovorfo" path="res://Objects/Lamp/scenes/lamp.tscn" id="10_fyl7a"]
+[ext_resource type="PackedScene" uid="uid://bh6gmu3tev4f" path="res://Objects/rock/scene/sprite_2d.tscn" id="11_okqc0"]
+[ext_resource type="PackedScene" uid="uid://ds3lqs4f0cl4i" path="res://Objects/shop/scenes/level_boss_trip_A.tscn" id="12_n65wk"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_r3nhe")
+
+[node name="level_boss_trip_A" parent="." instance=ExtResource("12_n65wk")]
+position = Vector2(1326, 336.5)
+scale = Vector2(0.966102, 0.867188)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -27,7 +34,7 @@ texture = ExtResource("1_l1nbv")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_0uh1a")]
-position = Vector2(182, 330)
+position = Vector2(224, 342)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(244, -42)
@@ -70,3 +77,39 @@ collision_mask = 2
 
 [node name="Node2D2" parent="." instance=ExtResource("9_46awt")]
 position = Vector2(1696, 254)
+
+[node name="Lamp" parent="." instance=ExtResource("10_fyl7a")]
+position = Vector2(192, 404)
+scale = Vector2(0.891304, 0.815789)
+
+[node name="Lamp2" parent="." instance=ExtResource("10_fyl7a")]
+position = Vector2(781, 367)
+scale = Vector2(0.891304, 0.815789)
+
+[node name="Rock" parent="." instance=ExtResource("11_okqc0")]
+position = Vector2(1189, 385)
+scale = Vector2(0.722222, 0.666667)
+
+[node name="Rock2" parent="." instance=ExtResource("11_okqc0")]
+position = Vector2(835.75, 384.5)
+scale = Vector2(0.722222, 0.944444)
+
+[node name="Rock3" parent="." instance=ExtResource("11_okqc0")]
+position = Vector2(1169.25, 384.5)
+scale = Vector2(0.566667, 0.722222)
+
+[node name="Rock4" parent="." instance=ExtResource("11_okqc0")]
+position = Vector2(996.25, 386)
+scale = Vector2(0.788889, 0.777778)
+
+[node name="Rock5" parent="." instance=ExtResource("11_okqc0")]
+position = Vector2(718.75, 385)
+scale = Vector2(0.811111, 0.777778)
+
+[node name="Rock6" parent="." instance=ExtResource("11_okqc0")]
+position = Vector2(478, 424)
+scale = Vector2(0.433333, 0.444444)
+
+[node name="Rock7" parent="." instance=ExtResource("11_okqc0")]
+position = Vector2(256.125, 423.75)
+scale = Vector2(0.394444, 0.416667)
