@@ -151,6 +151,7 @@ func die()-> void:
 	is_dead = true
 	print("You died!")
 	ap.play("death")
+	await ap.animation_finished
 	velocity = Vector2.ZERO
 	get_tree().change_scene_to_file("res://UI/scenes/game_over_menu.tscn")
 

@@ -750,5 +750,13 @@ libraries = {
 "": SubResource("AnimationLibrary_q3m6e")
 }
 
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="RollSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

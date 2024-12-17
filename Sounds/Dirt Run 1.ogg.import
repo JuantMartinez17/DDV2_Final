@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c2alskhtclkmw"
+path="res://.godot/imported/Dirt Run 1.ogg-d404cf2d0ac63e29d7e3ad79ab243d1f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Dirt Run 1.ogg"
+dest_files=["res://.godot/imported/Dirt Run 1.ogg-d404cf2d0ac63e29d7e3ad79ab243d1f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
