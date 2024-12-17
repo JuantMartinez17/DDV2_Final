@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://cp1a2kgk8gw26"]
 
 [ext_resource type="Texture2D" uid="uid://cft330o1oidsg" path="res://UI/assets/game_over_menu_background.png" id="1_ymbm5"]
-[ext_resource type="Script" path="res://UI/scripts/mainmenu.gd" id="2_4perv"]
+[ext_resource type="Script" path="res://UI/scripts/game_over_menugd.gd" id="2_s52ff"]
 [ext_resource type="Script" path="res://UI/scripts/v_box_container.gd" id="3_4ncqu"]
 [ext_resource type="Theme" uid="uid://c877x8f6cbfhs" path="res://Themes/menu_button.tres" id="4_ljq5p"]
 
-[node name="MainMenu" type="Node2D"]
+[node name="GameOver" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -69.0
@@ -16,7 +16,7 @@ texture = ExtResource("1_ymbm5")
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("2_4perv")
+script = ExtResource("2_s52ff")
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
