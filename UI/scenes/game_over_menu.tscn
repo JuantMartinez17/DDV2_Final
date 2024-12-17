@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg8jhqhna2imn"]
+[gd_scene load_steps=5 format=3 uid="uid://cp1a2kgk8gw26"]
 
-[ext_resource type="Texture2D" uid="uid://6dhwsb6t2pbe" path="res://UI/assets/main_menu_background.png" id="1_rjhbh"]
-[ext_resource type="Script" path="res://UI/scripts/mainmenu.gd" id="2_nrms4"]
-[ext_resource type="Theme" uid="uid://c877x8f6cbfhs" path="res://Themes/menu_button.tres" id="3_l767c"]
-[ext_resource type="Script" path="res://UI/scripts/v_box_container.gd" id="3_w2384"]
+[ext_resource type="Texture2D" uid="uid://cft330o1oidsg" path="res://UI/assets/game_over_menu_background.png" id="1_ymbm5"]
+[ext_resource type="Script" path="res://UI/scripts/mainmenu.gd" id="2_4perv"]
+[ext_resource type="Script" path="res://UI/scripts/v_box_container.gd" id="3_4ncqu"]
+[ext_resource type="Theme" uid="uid://c877x8f6cbfhs" path="res://Themes/menu_button.tres" id="4_ljq5p"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -12,11 +12,11 @@ offset_left = -69.0
 offset_top = -39.0
 offset_right = 1331.0
 offset_bottom = 749.0
-texture = ExtResource("1_rjhbh")
+texture = ExtResource("1_ymbm5")
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("2_nrms4")
+script = ExtResource("2_4perv")
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -31,28 +31,28 @@ offset_top = 297.0
 offset_right = 705.0
 offset_bottom = 444.0
 theme_override_constants/separation = 20
-script = ExtResource("3_w2384")
+script = ExtResource("3_4ncqu")
 
 [node name="play" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../controls")
-theme = ExtResource("3_l767c")
-text = "Play"
+focus_neighbor_top = NodePath("../main_menu")
+theme = ExtResource("4_ljq5p")
+text = "Restart"
 flat = true
 
 [node name="exit" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_l767c")
+theme = ExtResource("4_ljq5p")
 text = "Exit"
 flat = true
 
-[node name="controls" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+[node name="main_menu" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../play")
-theme = ExtResource("3_l767c")
-text = "Controls"
+theme = ExtResource("4_ljq5p")
+text = "Main Menu"
 flat = true
 
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/play" to="CanvasLayer" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/exit" to="CanvasLayer" method="_on_exit_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/controls" to="CanvasLayer" method="_on_controls_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/main_menu" to="CanvasLayer" method="_on_main_menu_pressed"]

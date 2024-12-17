@@ -151,6 +151,7 @@ func die()-> void:
 	print("You died!")
 	ap.play("death")
 	velocity = Vector2.ZERO
+	get_tree().change_scene_to_file("res://UI/scenes/game_over_menu.tscn")
 
 func heal(amount: int)-> void:
 	if is_dead:
