@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bytwsfun2pnrx"]
+[gd_scene load_steps=15 format=3 uid="uid://bytwsfun2pnrx"]
 
 [ext_resource type="PackedScene" uid="uid://rylnngnvvk8k" path="res://Player/scenes/Player.tscn" id="1_0uh1a"]
 [ext_resource type="Texture2D" uid="uid://dmwrlbo5smury" path="res://assets/background_layer_3.png" id="1_l1nbv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://1cqinogjs2x3" path="res://Platforms/scenes/platform1.tscn" id="3_2d3m4"]
 [ext_resource type="PackedScene" uid="uid://cv4e2rx1q2ypc" path="res://Objects/shop/scenes/level_boss_trip_b.tscn" id="3_05fme"]
 [ext_resource type="PackedScene" uid="uid://bvlxbjfdypbhn" path="res://UI/scenes/hud.tscn" id="4_qfcck"]
+[ext_resource type="PackedScene" uid="uid://cebfrclxdatnw" path="res://Objects/shop/scenes/to_level_completed.tscn" id="4_vmmmx"]
 [ext_resource type="PackedScene" uid="uid://dll04clj7sepd" path="res://Enemies/Scenes/enemy_1.tscn" id="6_4lw0o"]
 [ext_resource type="PackedScene" uid="uid://cdj1hotq5j55q" path="res://UI/scenes/pause_menu.tscn" id="7_mrdhm"]
 [ext_resource type="PackedScene" uid="uid://c5rwbbnch4lv8" path="res://Platforms/scenes/platform_type2.tscn" id="8_wxmyq"]
@@ -23,6 +24,9 @@ scale = Vector2(0.966102, 0.867188)
 
 [node name="level_boss_trip_B" parent="." instance=ExtResource("3_05fme")]
 position = Vector2(1772, 250)
+
+[node name="Sprite2D" parent="." instance=ExtResource("4_vmmmx")]
+position = Vector2(2904, 248)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -53,7 +57,7 @@ texture = ExtResource("1_l1nbv")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_0uh1a")]
-position = Vector2(1162, 248)
+position = Vector2(158, 357)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(244, -42)
