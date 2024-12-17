@@ -14,16 +14,80 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "KEY BINDINGS"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="move_left" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "move_left"
+
+[node name="Button" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="move_right" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "move_right"
+
+[node name="Button2" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="jump" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "jump"
+
+[node name="Button3" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="attack" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "attack"
+
+[node name="Button4" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="attack2" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "attack2"
+
+[node name="Button5" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="crouch" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "crouch"
+
+[node name="Button6" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="roll" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "roll"
+
+[node name="Button7" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="save" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="restore" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Guardar" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="PopupPanel" type="PopupPanel" parent="."]
 
-[node name="PopupPanel" type="PopupPanel" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PopupPanel"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="PopupPanel/MarginContainer"]
+layout_mode = 2
+text = "Press a key"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/restore" to="." method="_on_restore_pressed"]
