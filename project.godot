@@ -13,6 +13,7 @@ config_version=5
 config/name="DDV2_Final"
 run/main_scene="res://UI/scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://icon.svg"
 
 [input]
 
